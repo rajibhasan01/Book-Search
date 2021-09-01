@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book Search</title>
+    <!-- bootstrap stylesheet cdn -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
+
+    <!-- Internal stylesheet -->
+    <link rel="stylesheet" href="css/style.css">
+    
+</head>
+<body class="background">
+    <section class="container">
+        <h2 class="customize text-secondary fs-1 fw-light text">It's the book and novel you love, <span class="text-danger">Search here !</span></h2>
+
+        <!--book search area -->
+    
+        <div class="input-group mt-5 customize">
+            <input id="input-box" type="text" class="form-control me-3" placeholder="Search by book name..." aria-label="Recipient's username" aria-describedby="button-addon2">
+            <button onclick="searchBook()" class="btn btn-outline-secondary px-4" type="button" id="button">Search</button>
+        </div>
+
+        <!-- spinners area -->
+        <div id="spinner-field" class="customize-spinner">
+            <button class="btn" type="button" disabled>
+                <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
+                Loading...
+            </button>
+        </div>
+        <!--book search result -->
+        <section class="customize1 mt-5" >
+            <h5 id="found-number" class="mb-2 ps-2"></h5>
+            <div id="result-container" class="row row-cols-1 row-cols-md-4 g-4">
+            </div>
+
+            <!-- error msg with toast -->
+            <div class="toast align-items-center toast-bg" role="alert" aria-live="assertive" aria-atomic="true">
+                <div class="d-flex">
+                  <div class="toast-body">
+                    <h4 id="error-msg" class="text-light fw-light fs-5 text"></h4>
+                 </div>
+                  <button type="button" class="btn-close me-2 m-auto bg-light" data-bs-dismiss="toast" aria-label="Close"></button>
+                </div>
+              </div>
+        </section>
+
+
+        <!-- single book details -->
+  
+        <!-- Modal -->
+        <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+            <div id="container-single-item" class="modal-content">
+                
+            </div>
+            </div>
+        </div>
+
+    </section>
+
+    <!-- bootstrap js file -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj" crossorigin="anonymous"></script>
+    <!-- Internal js file -->
+    <script src="js/book.js"></script>
+</body>
+</html>
