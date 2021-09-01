@@ -57,19 +57,26 @@ const displayBooks = books =>{
     // clear innertext of div
     container.textContent = '';
 
-    books.docs.slice(0,20).forEach(book => {
+    books.docs.slice(0,20)?.forEach(book => {
+       source =`https://covers.openlibrary.org/b/id/${book.cover_i}-M.jpg`;
+
+        // undifinied picture handle
+       if(!book.cover_i){
+           source = 'image/image-not-available.jpg';
+       }
+
        const div = document.createElement('div');
        div.classList.add('col');
        div.innerHTML = `
             <div onclick = "loadBook('${book.author_key}')" class="card h-100 overflow-hidden" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
                 <div class="overflow-hidden ">
-                    <img src="https://covers.openlibrary.org/b/id/${book.cover_i}-M.jpg" class="card-img-top image" alt="...">
+                    <img src = ${source} class="card-img-top image" alt="...">
                 </div>
                 <div class="card-body">
-                    <h5 class="card-title">${book.title}</h5>
-                    <p class="card-text text-muted">Author: ${book.author_name[0]} <br>
-                    Publisher: ${book.publisher[0]} <br>
-                    ${book.first_publish_year}</p>
+                    <h5 class="card-title">${book.title ? book.title : 'Book name not available'}</h5>
+                    <p class="card-text text-muted">Author: ${book.author_name[0] ? book.author_name[0] : 'Author info not available'} <br>
+                    Publisher: ${book.publisher[0] ? book.publisher[0] : 'Publisher info not available'} <br>
+                    ${book.first_publish_year ? book.first_publish_year : 'Publise year not available'}</p>
                 </div>
             </div>
        `;
