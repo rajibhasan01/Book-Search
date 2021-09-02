@@ -59,8 +59,15 @@ const displayBooks = books =>{
     const container = document.getElementById('result-container');
 
     // total search found set
+    const number = books.numFound;
     const totalFound = document.getElementById('found-number');
-    totalFound.innerText = `${books.numFound} search result found...`;
+    if(number <= 0){
+        totalFound.innerText = `No result found, try something different...`;
+    }
+    else{
+        totalFound.innerText = `${number} search result found...`;
+    }
+    
 
     // clear innertext of div
     container.textContent = '';
