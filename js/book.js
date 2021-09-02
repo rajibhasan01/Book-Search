@@ -18,7 +18,6 @@ const searchBook = () => {
     else{
         // load data from server
         const url = `https://openlibrary.org/search.json?q=${searchText}`;
-        console.log(url);
         fetch(url)
         .then(res => res.json())
         .then(data => displayBooks(data))
@@ -46,7 +45,6 @@ const displayMassage = errorMsg =>{
         container.textContent = '';
         const msg = document.getElementById('error-msg');
         msg.innerText = errorMsg;
-        console.log('error msg')
         let myAlert = document.querySelector('.toast');
         let bsAlert = new bootstrap.Toast(myAlert);
         bsAlert.show();
@@ -55,7 +53,6 @@ const displayMassage = errorMsg =>{
 
 // display search result arrow function
 const displayBooks = books =>{
-    console.log(books.docs);
     const container = document.getElementById('result-container');
 
     // total search found set
