@@ -57,19 +57,21 @@ const displayBooks = books =>{
 
     // total search found set
     const number = books.numFound;
+    const booksNumber = books.docs.slice(0,20);
     const totalFound = document.getElementById('found-number');
     if(number <= 0){
         totalFound.innerText = `No result found, try something different...`;
     }
     else{
-        totalFound.innerText = `${number} search result found...`;
+        totalFound.innerText = `${number} search result found...
+        ${booksNumber.length} result showing...`;
     }
     
 
     // clear innertext of div
     container.textContent = '';
 
-    books.docs.slice(0,20)?.forEach(book => {
+    booksNumber?.forEach(book => {
        source =`https://covers.openlibrary.org/b/id/${book.cover_i}-M.jpg`;
 
         // undifinied picture handle
