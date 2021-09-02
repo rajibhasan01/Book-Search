@@ -19,7 +19,7 @@ const searchBook = () => {
         fetch(url)
         .then(res => res.json())
         .then(data => displayBooks(data))
-        // .catch(() => displayMassage("Sorry! Something went wrong. Try again later."));
+        .catch(() => displayMassage("Sorry! Something went wrong. Try again later."));
     }
 
 } 
