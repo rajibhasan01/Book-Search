@@ -12,7 +12,7 @@ const searchBook = () => {
     // error msg toggle off
     displayToast('none');
 
-    if(searchText == ''){
+    if(searchText === ''){
         displayMassage('Invalid input, please give a valid book name!');
     }
     else{
