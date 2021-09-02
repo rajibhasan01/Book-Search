@@ -14,12 +14,12 @@ const searchBook = () => {
     }
     else{
         // load data from server
-        const url = `http://openlibrary.org/search.json?q=${searchText}`;
+        const url = `https://openlibrary.org/search.json?q=${searchText}`;
         console.log(url);
         fetch(url)
         .then(res => res.json())
         .then(data => displayBooks(data))
-        .catch(() => displayMassage("Sorry! Something went wrong. Try again later."));
+        // .catch(() => displayMassage("Sorry! Something went wrong. Try again later."));
     }
 
 } 
@@ -74,7 +74,7 @@ const displayBooks = books =>{
                 </div>
                 <div class="card-body">
                     <h5 class="card-title">${book.title ? book.title : 'Book name not available'}</h5>
-                    <p class="card-text text-muted">Author: ${book.author_name[0] ? book.author_name[0] : 'Author info not available'} <br>
+                    <p class="card-text text-muted">Author: ${book.author_name ? book.author_name[0] : 'Author info not available'} <br>
                     Publisher: ${book.publisher[0] ? book.publisher[0] : 'Publisher info not available'} <br>
                     ${book.first_publish_year ? book.first_publish_year : 'Publise year not available'}</p>
                 </div>
